@@ -64,6 +64,10 @@ func (h UserHandler) InitRoutes(e *echo.Echo, timeout time.Duration) {
 // @Produce      json
 // @Param        id   body      domain.User  true  "User's consisted of login and password"
 // @Success      201  {object}  domain.User
+// @Failure 400 {object} echo.HTTPError
+// @Failure 401 {object} echo.HTTPError
+// @Failure 500 {object} echo.HTTPError
+// @Failure default {object} echo.HTTPError
 // @Router       /users/register [post]
 func (h UserHandler) SignUpHandler(c echo.Context) error {
 	ctx := c.Request().Context()
@@ -90,7 +94,11 @@ func (h UserHandler) SignUpHandler(c echo.Context) error {
 // @Accept       json
 // @Produce      json
 // @Param        id   body      domain.User  true  "User's consisted of login and password"
-// @Success      201  {object}  string
+// @Success      200  {object}  string
+// @Failure 400 {object} echo.HTTPError
+// @Failure 401 {object} echo.HTTPError
+// @Failure 500 {object} echo.HTTPError
+// @Failure default {object} echo.HTTPError
 // @Router       /users/login [post]
 func (h UserHandler) SignInHandler(c echo.Context) error {
 	ctx := c.Request().Context()
