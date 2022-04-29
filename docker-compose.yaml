@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: passwd
-      POSTGRES_DB: crime-cmd
+      POSTGRES_DB: crime-app
       PGDATA: /data/postgres
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql

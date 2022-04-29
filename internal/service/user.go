@@ -54,6 +54,9 @@ func (u UserService) SignIn(ctx context.Context, user domain.User) (string, erro
 }
 
 func (u UserService) SignUp(ctx context.Context, user domain.User) error {
+	if err := user.Validate(); err != nil {
+		return fmt.Errorf("can't sign up 'cause of values, err: %w", err)
+	}
 	hashedPassword, err := hash(*user.Password)
 	if err != nil {
 		return fmt.Errorf("can't sign up 'cause of hashing, err: %w", err)

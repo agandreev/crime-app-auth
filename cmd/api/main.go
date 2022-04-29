@@ -73,5 +73,5 @@ func main() {
 	if err = srv.Stop(ctx); err != nil {
 		log.Fatalf("graceful shutdown is broken, err: %q", err)
 	}
-	log.Info("cmd was gracefully shut down.")
+	log.Info("srv was gracefully shut down.")
 }

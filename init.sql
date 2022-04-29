@@ -1,7 +1,7 @@
 CREATE TABLE users
 (
     id       SERIAL PRIMARY KEY,
-    login    TEXT,
-    password TEXT,
+    login    VARCHAR(16),
+    password VARCHAR(60),
     UNIQUE(login)
 );
