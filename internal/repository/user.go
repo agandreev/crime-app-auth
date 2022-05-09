@@ -50,3 +50,7 @@ func (u UserRepository) AddUser(ctx context.Context, user domain.User) error {
 	}
 	return nil
 }
+
+func (u UserRepository) Close() {
+	u.db.Close()
+}

@@ -73,5 +73,6 @@ func main() {
 	if err = srv.Stop(ctx); err != nil {
 		log.Fatalf("graceful shutdown is broken, err: %q", err)
 	}
+	userRepository.Close()
 	log.Info("srv was gracefully shut down.")
 }
