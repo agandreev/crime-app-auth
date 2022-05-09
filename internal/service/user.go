@@ -16,6 +16,7 @@ import (
 type UserRepository interface {
 	User(ctx context.Context, login string) (*domain.User, error)
 	AddUser(ctx context.Context, user domain.User) error
+	Close()
 }
 
 type UserService struct {

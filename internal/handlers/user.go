@@ -20,7 +20,6 @@ var (
 type UserService interface {
 	SignIn(ctx context.Context, user domain.User) (string, error)
 	SignUp(ctx context.Context, user domain.User) error
-	Stop()
 }
 
 type UserHandler struct {
