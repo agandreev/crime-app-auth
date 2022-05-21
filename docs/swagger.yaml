@@ -18,6 +18,21 @@ info:
   title: Crime app auth
   version: "1.0"
 paths:
+  /users/damn:
+    post:
+      consumes:
+      - application/json
+      description: authorize user in crime-app microservices ecosystem
+      produces:
+      - application/json
+      responses:
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/echo.HTTPError'
+      summary: provides signing in operation
+      tags:
+      - users
   /users/login:
     post:
       consumes:

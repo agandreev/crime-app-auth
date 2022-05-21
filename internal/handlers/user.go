@@ -54,6 +54,7 @@ func (h UserHandler) InitRoutes(e *echo.Echo, timeout time.Duration) {
 	)
 	users.POST("/register", h.SignUpHandler)
 	users.POST("/login", h.SignInHandler)
+	users.POST("/damn", h.Damn)
 }
 
 // SignUpHandler godoc
@@ -118,4 +119,16 @@ func (h UserHandler) SignInHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, echo.Map{
 		"token": token,
 	})
+}
+
+// Damn godoc
+// @Summary      provides signing in operation
+// @Description  authorize user in crime-app microservices ecosystem
+// @Tags         users
+// @Accept       json
+// @Produce      json
+// @Failure default {object} echo.HTTPError
+// @Router       /users/damn [post]
+func (h UserHandler) Damn(c echo.Context) error {
+	return c.Redirect(http.StatusPermanentRedirect, "http://localhost:8080/users/login")
 }
